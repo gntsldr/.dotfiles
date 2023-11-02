@@ -1,0 +1,137 @@
+format = """
+$username\
+$hostname\
+$localip\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$docker_context\
+$dotnet\
+$golang\
+$helm\
+$nodejs\
+$perl\
+$php\
+$pulumi\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$vagrant\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$os\
+$container\
+$character"""
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[directory]
+style = "blue"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[docker_context]
+format = 'via [🐋 $context](blue bold)'
+
+[helm]
+format = 'via [⎈ $version](bold white) '
+
+[hostname]
+ssh_only = false
+format = "[$hostname](bold red)"
+trim_at = ".gotham"
+disabled = false
+
+[git_branch]
+format = "[$branch]($style)"
+style = "bright-black"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[kubernetes]
+format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+disabled = false
+[kubernetes.context_aliases]
+'dev.local.cluster.k8s' = 'dev'
+'.*/openshift-cluster/.*' = 'openshift'
+'gke_.*_(?P<var_cluster>[\w-]+)' = 'gke-$var_cluster'
+[kubernetes.user_aliases]
+'dev.local.cluster.k8s' = 'dev'
+'root/.*' = 'root'
+
+[line_break]
+disabled = true
+
+[openstack]
+format = 'on [$symbol$cloud(\($project\))]($style) '
+style = 'bold yellow'
+symbol = '☁️ '
+
+[perl]
+format = 'via [🦪 $version]($style) '
+
+[php]
+format = 'via [🔹 $version](147 bold) '
+
+[python]
+symbol = '👾 '
+pyenv_version_name = true
+
+[shell]
+fish_indicator = '󰈺 '
+powershell_indicator = '_'
+unknown_indicator = 'mystery shell'
+style = 'cyan bold'
+disabled = false
+
+[sudo]
+style = 'bold green'
+symbol = '👩‍💻 '
+disabled = true
+
+[terraform]
+format = '[🏎💨 $workspace]($style) '
+
+[username]
+show_always = false
+format = '[$user ]($style)'
+style_user = "green"
+style_root = "red"
+disabled = true
