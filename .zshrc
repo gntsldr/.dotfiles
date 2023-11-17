@@ -35,9 +35,20 @@ compinit
 # End of lines added by compinstall
 
 # key bindings
-bindkey "^[[H" beginning-of-line
-bindkey "^[[F" end-of-line
-bindkey "^[[3~" delete-char
+bindkey "^[[3~" delete-char #del
+bindkey "2~" delete-char #shift+del
+bindkey "^[[H" beginning-of-line #home
+bindkey ";2H" beginning-of-line #shift+home
+bindkey "^[[F" end-of-line #end
+bindkey ";2F" end-of-line #shift+end
+bindkey ";2A" beginning-of-line #shift+up
+bindkey ";2B" end-of-line #shift+down
+bindkey ";5A" beginning-of-line #ctrl+up
+bindkey ";5B" end-of-line #ctrl+down
+bindkey ";2D" backward-word #shift+left
+bindkey ";2C" forward-word #shift+right
+bindkey ";5D" backward-word #ctrl+left
+bindkey ";5C" forward-word #ctrl+right
 
 # Add aliases for color
 alias egrep='egrep --color=auto'
