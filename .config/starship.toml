@@ -86,8 +86,8 @@ deleted = "​"
 stashed = "≡"
 
 [kubernetes]
-format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
-disabled = false
+format = ' on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+disabled = true
 [kubernetes.context_aliases]
 'dev.local.cluster.k8s' = 'dev'
 '.*/openshift-cluster/.*' = 'openshift'
